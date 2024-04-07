@@ -5,7 +5,7 @@ namespace OnlineDocumentStore.API.Services
 {
     public class QRCodeService : IQRCodeService
     {
-        public async ValueTask<Bitmap> GenerateQRCode(string qrCodeText)
+        public async ValueTask<Bitmap> GenerateQRCodeAsync(string qrCodeText)
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeText, QRCodeGenerator.ECCLevel.Q);

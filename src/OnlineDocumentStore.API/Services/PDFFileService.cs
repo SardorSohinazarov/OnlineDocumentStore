@@ -17,15 +17,15 @@ namespace OnlineDocumentStore.API.Services
             _qrCodeService = qrCodeService;
         }
 
-        public async ValueTask<string> AddPhoto(PDFFile pdfFile)
+        public async ValueTask<string> AddPhotoAsync(PDFFile pdfFile)
         {
             // PDF faylni saqlash
             var newPDFFileName = Guid.NewGuid().ToString() + ".pdf";
             var newPDFFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "EditedFiles", newPDFFileName);
 
-            var path = await _fileService.Upload(pdfFile.File, "UploadedFiles");
+            var path = await _fileService.UploadAsync(pdfFile.File, "UploadedFiles");
 
-            var qrCodeImage = await _qrCodeService.GenerateQRCode(path);
+            var qrCodeImage = await _qrCodeService.GenerateQRCodeAsync(path);
 
             PdfDocument pdf = PdfReader.Open(path, PdfDocumentOpenMode.Modify);
             pdf.Info.Title = pdfFile.File.Name;

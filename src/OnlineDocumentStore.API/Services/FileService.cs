@@ -7,7 +7,7 @@
         public FileService(IWebHostEnvironment webHostEnvironment)
             => _webHostEnvironment = webHostEnvironment;
 
-        public async ValueTask<string> Upload(IFormFile file, string DirectoryName)
+        public async ValueTask<string> UploadAsync(IFormFile file, string DirectoryName)
         {
             string fileName = "";
             string filePath = "";

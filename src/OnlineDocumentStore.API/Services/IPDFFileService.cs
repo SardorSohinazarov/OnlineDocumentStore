@@ -4,6 +4,6 @@ namespace OnlineDocumentStore.API.Services
 {
     public interface IPDFFileService
     {
-        ValueTask<string> AddPhoto(PDFFile pdfFile);
+        ValueTask<string> AddPhotoAsync(PDFFile pdfFile);
     }
 }

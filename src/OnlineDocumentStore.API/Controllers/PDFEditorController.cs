@@ -14,11 +14,17 @@ namespace OnlineDocumentStore.API.Controllers
             => _pdfFileService = pdfFileService;
 
         [HttpPost]
-        public async Task<IActionResult> AddQRCode([FromForm] PDFFile pdfFile)
+        public async Task<IActionResult> AddQRCodeAsync([FromForm] PDFFile pdfFile)
         {
-            var editedFile = await _pdfFileService.AddPhoto(pdfFile);
+            var editedFile = await _pdfFileService.AddPhotoAsync(pdfFile);
 
             return Ok(editedFile);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DownloadFileAsync()
+        {
+            return Ok();
         }
     }
 }
