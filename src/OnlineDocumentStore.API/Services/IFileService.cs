@@ -2,6 +2,6 @@
 {
     public interface IFileService
     {
-        ValueTask<string> Upload(IFormFile file);
+        ValueTask<string> Upload(IFormFile file, string DiractoryName);
     }
 }

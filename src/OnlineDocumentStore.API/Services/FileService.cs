@@ -7,14 +7,14 @@
         public FileService(IWebHostEnvironment webHostEnvironment)
             => _webHostEnvironment = webHostEnvironment;
 
-        public async ValueTask<string> Upload(IFormFile file)
+        public async ValueTask<string> Upload(IFormFile file, string DirectoryName)
         {
-            string filePath = "";
             string fileName = "";
+            string filePath = "";
             try
             {
                 fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                filePath = Path.Combine(_webHostEnvironment.WebRootPath, "UploadedFiles", fileName);
+                filePath = Path.Combine(_webHostEnvironment.WebRootPath, DirectoryName, fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
