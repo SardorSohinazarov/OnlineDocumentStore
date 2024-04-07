@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AE8F5ACC-2E2C-453F-A9B3-6C99CC1C50A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDocumentStore.API", "src\OnlineDocumentStore.API\OnlineDocumentStore.API.csproj", "{35CC5102-DB39-4ED5-A2F6-264C3B75E938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineDocumentStore.API", "src\OnlineDocumentStore.API\OnlineDocumentStore.API.csproj", "{35CC5102-DB39-4ED5-A2F6-264C3B75E938}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

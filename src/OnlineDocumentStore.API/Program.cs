@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFileService, FileService>()
-    .AddScoped<IPDFFileService, PDFFileService>();
+    .AddScoped<IPDFFileService, PDFFileService>()
+    .AddScoped<IQRCodeService, QRCodeService>();
 
 var app = builder.Build();
 
