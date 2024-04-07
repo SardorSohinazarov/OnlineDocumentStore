@@ -1,4 +1,5 @@
-﻿using OnlineDocumentStore.API.Models;
+﻿using Microsoft.AspNetCore.Http.Extensions;
+using OnlineDocumentStore.API.Models;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
@@ -10,11 +11,13 @@ namespace OnlineDocumentStore.API.Services
         private readonly IFileService _fileService;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IQRCodeService _qrCodeService;
-        public PDFFileService(IFileService fileService, IWebHostEnvironment webHostEnvironment, IQRCodeService qrCodeService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public PDFFileService(IFileService fileService, IWebHostEnvironment webHostEnvironment, IQRCodeService qrCodeService, IHttpContextAccessor httpContextAccessor)
         {
             _fileService = fileService;
             _webHostEnvironment = webHostEnvironment;
             _qrCodeService = qrCodeService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async ValueTask<string> AddPhotoAsync(PDFFile pdfFile)
@@ -25,7 +28,7 @@ namespace OnlineDocumentStore.API.Services
 
             var path = await _fileService.UploadAsync(pdfFile.File, "UploadedFiles");
 
-            var qrCodeImage = await _qrCodeService.GenerateQRCodeAsync(path);
+            var qrCodeImage = await _qrCodeService.GenerateQRCodeAsync(GetDownloaderLink(newPDFFileName));
 
             PdfDocument pdf = PdfReader.Open(path, PdfDocumentOpenMode.Modify);
             pdf.Info.Title = pdfFile.File.Name;
@@ -47,6 +50,18 @@ namespace OnlineDocumentStore.API.Services
             pdf.Save(newPDFFilePath);
 
             return newPDFFilePath;
+        }
+
+        private string GetDownloaderLink(string path)
+        {
+            string url = _httpContextAccessor.HttpContext.Request.GetDisplayUrl();
+
+            url = _httpContextAccessor.HttpContext.Request.Scheme + "://" +
+                _httpContextAccessor.HttpContext.Request.Host +
+                "/api/PDFEditor/DownloadFile/EditedFiles%5C" +
+                path;
+
+            return url;
         }
     }
 }

@@ -13,6 +13,8 @@ builder.Services.AddScoped<IFileService, FileService>()
     .AddScoped<IPDFFileService, PDFFileService>()
     .AddScoped<IQRCodeService, QRCodeService>();
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
