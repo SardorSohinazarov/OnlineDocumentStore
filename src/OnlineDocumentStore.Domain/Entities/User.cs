@@ -10,5 +10,7 @@
         public string RefreshToken { get; set; }
         public string Salt { get; set; }
         public DateTime ExpireDate { get; set; }
+
+        public virtual List<Document> Documents { get; set; }
     }
 }
