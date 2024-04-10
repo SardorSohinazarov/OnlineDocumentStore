@@ -21,6 +21,11 @@ namespace OnlineDocumentStore.API.Middlewares
                 context.Response.StatusCode = (int)StatusCodes.Status404NotFound;
                 HandleExceptionAsync(context, ex);
             }
+            catch (ValidationException ex)
+            {
+                context.Response.StatusCode = (int)StatusCodes.Status400BadRequest;
+                HandleExceptionAsync(context, ex);
+            }
             catch (Exception ex)
             {
                 HandleExceptionAsync(context, ex);
