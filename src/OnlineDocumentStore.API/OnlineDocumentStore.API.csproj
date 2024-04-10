@@ -25,4 +25,8 @@
     <Folder Include="wwwroot\EditedFiles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineDocumentStore.Application\OnlineDocumentStore.Application.csproj" />
+  </ItemGroup>
+
 </Project>

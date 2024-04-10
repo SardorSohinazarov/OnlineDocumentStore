@@ -1,4 +1,6 @@
-﻿namespace OnlineDocumentStore.API.Services
+﻿using Microsoft.AspNetCore.Http;
+
+namespace OnlineDocumentStore.Application.Services
 {
     public interface IFileService
     {

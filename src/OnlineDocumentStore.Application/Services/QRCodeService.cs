@@ -1,7 +1,7 @@
 ﻿using QRCoder;
 using System.Drawing;
 
-namespace OnlineDocumentStore.API.Services
+namespace OnlineDocumentStore.Application.Services
 {
     public class QRCodeService : IQRCodeService
     {

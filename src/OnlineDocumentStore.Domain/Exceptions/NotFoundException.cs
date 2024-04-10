@@ -1,4 +1,4 @@
-﻿namespace OnlineDocumentStore.API.Models.Exceptions
+﻿namespace OnlineDocumentStore.Domain.Exceptions
 {
     public class NotFoundException : Exception
     {

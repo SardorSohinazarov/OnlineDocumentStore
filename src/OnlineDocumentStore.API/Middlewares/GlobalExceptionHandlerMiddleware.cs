@@ -1,4 +1,4 @@
-﻿using OnlineDocumentStore.API.Models.Exceptions;
+﻿using OnlineDocumentStore.Domain.Exceptions;
 using System.Text.Json;
 
 namespace OnlineDocumentStore.API.Middlewares

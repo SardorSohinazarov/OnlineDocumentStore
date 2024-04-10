@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="PDFsharp" Version="6.0.0" />
+		<PackageReference Include="QRCoder" Version="1.4.2" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineDocumentStore.Domain\OnlineDocumentStore.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

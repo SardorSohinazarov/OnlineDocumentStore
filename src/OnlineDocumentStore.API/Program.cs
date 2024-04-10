@@ -1,5 +1,5 @@
 using OnlineDocumentStore.API.Middlewares;
-using OnlineDocumentStore.API.Services;
+using OnlineDocumentStore.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services
-    .AddScoped<IFileService, FileService>()
-    .AddScoped<IPDFFileService, PDFFileService>()
-    .AddScoped<IQRCodeService, QRCodeService>();
+builder.Services.AddApplicationServices();
 
 builder.Services.AddHttpContextAccessor();
 

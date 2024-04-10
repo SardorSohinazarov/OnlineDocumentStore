@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
-using OnlineDocumentStore.API.Models;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
+using OnlineDocumentStore.Application.Models;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
-namespace OnlineDocumentStore.API.Services
+namespace OnlineDocumentStore.Application.Services
 {
     public class PDFFileService : IPDFFileService
     {

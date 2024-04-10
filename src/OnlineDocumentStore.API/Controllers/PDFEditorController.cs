@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineDocumentStore.API.Models;
-using OnlineDocumentStore.API.Services;
+using OnlineDocumentStore.Application.Models;
+using OnlineDocumentStore.Application.Services;
 
 namespace OnlineDocumentStore.API.Controllers
 {

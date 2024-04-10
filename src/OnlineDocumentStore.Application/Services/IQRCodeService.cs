@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace OnlineDocumentStore.API.Services
+namespace OnlineDocumentStore.Application.Services
 {
     public interface IQRCodeService
     {
