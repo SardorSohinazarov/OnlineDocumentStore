@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
+using OnlineDocumentStore.Application.Abstractions.Repositories;
 using OnlineDocumentStore.Application.Models;
 using OnlineDocumentStore.Application.Services.FileServices;
 using OnlineDocumentStore.Application.Services.QRCodeServices;
+using OnlineDocumentStore.Domain.Entities;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
+using System.Security.Claims;
 
 namespace OnlineDocumentStore.Application.Services.PDFFileServices
 {
@@ -16,16 +19,20 @@ namespace OnlineDocumentStore.Application.Services.PDFFileServices
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IQRCodeService _qrCodeService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IDocumentRepository _documentRepository;
+
         public PDFFileService(
             IFileService fileService,
             IWebHostEnvironment webHostEnvironment,
             IQRCodeService qrCodeService,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            IDocumentRepository documentRepository)
         {
             _fileService = fileService;
             _webHostEnvironment = webHostEnvironment;
             _qrCodeService = qrCodeService;
             _httpContextAccessor = httpContextAccessor;
+            _documentRepository = documentRepository;
         }
 
         public async ValueTask<string> AddPhotoAsync(PDFFile pdfFile)
@@ -36,7 +43,18 @@ namespace OnlineDocumentStore.Application.Services.PDFFileServices
 
             var path = await _fileService.UploadAsync(pdfFile.File, "UploadedFiles");
 
-            var qrCodeImage = await _qrCodeService.GenerateQRCodeAsync(GetDownloaderLink(newPDFFileName));
+
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var document = await _documentRepository.InsertAsync(new Document()
+            {
+                Name = pdfFile.File.FileName,
+                EditedFilePath = newPDFFilePath,
+                UploadedFilePath = path,
+                UploadedDate = DateTime.Now,
+                UserId = Guid.Parse(userId)
+            });
+
+            var qrCodeImage = await _qrCodeService.GenerateQRCodeAsync(GetDownloaderLink(document.Id.ToString()));
 
             PdfDocument pdf = PdfReader.Open(path, PdfDocumentOpenMode.Modify);
             pdf.Info.Title = pdfFile.File.Name;
@@ -105,14 +123,14 @@ namespace OnlineDocumentStore.Application.Services.PDFFileServices
             return newPDFFilePath;
         }
 
-        private string GetDownloaderLink(string path)
+        private string GetDownloaderLink(string id)
         {
             string url = _httpContextAccessor.HttpContext.Request.GetDisplayUrl();
 
             url = _httpContextAccessor.HttpContext.Request.Scheme + "://" +
                 _httpContextAccessor.HttpContext.Request.Host +
-                "/api/PDFEditor/DownloadFile/EditedFiles%5C" +
-                path;
+                "/api/Documents?id=" +
+                id;
 
             return url;
         }
