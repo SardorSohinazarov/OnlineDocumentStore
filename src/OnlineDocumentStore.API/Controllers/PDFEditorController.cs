@@ -18,9 +18,9 @@ namespace OnlineDocumentStore.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddQRCodeAsync([FromForm] PDFFile pdfFile)
+        public async Task<IActionResult> AddQRCodeAsync([FromForm] PDFFile pdfFile, double? x, double? y, double? length)
         {
-            var editedFile = await _pdfFileService.AddPhotoAsync(pdfFile);
+            var editedFile = await _pdfFileService.AddPhotoAsync(pdfFile, x, y, length);
 
             if (!System.IO.File.Exists(editedFile))
             {

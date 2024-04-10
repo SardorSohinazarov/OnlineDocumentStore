@@ -8,13 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\QRCodes\**" />
+    <Content Remove="wwwroot\QRCodes\**" />
+    <EmbeddedResource Remove="wwwroot\QRCodes\**" />
+    <None Remove="wwwroot\QRCodes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
 	<PackageReference Include="PDFsharp" Version="6.0.0" />
     <PackageReference Include="QRCoder" Version="1.4.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\QRCodes\" />
     <Folder Include="wwwroot\UploadedFiles\" />
     <Folder Include="wwwroot\EditedFiles\" />
   </ItemGroup>
