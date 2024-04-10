@@ -4,8 +4,8 @@
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string UploadedDate { get; set; }
-        public int UserId { get; set; }
+        public DateTime UploadedDate { get; set; }
+        public Guid UserId { get; set; }
         public string UploadedFilePath { get; set; }
         public string EditedFilePath { get; set; }
 

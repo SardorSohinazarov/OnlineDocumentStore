@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnlineDocumentStore.Application.Models;
 using OnlineDocumentStore.Application.Services.PDFFileServices;
 
@@ -19,6 +20,7 @@ namespace OnlineDocumentStore.API.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddQRCodeAsync([FromForm] PDFFile pdfFile, double? x, double? y, double? length)
         {
@@ -40,19 +42,16 @@ namespace OnlineDocumentStore.API.Controllers
         [HttpGet("{path}")]
         public async Task<IActionResult> DownloadFileAsync(string path)
         {
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            string outputFilePath = Path.Combine(webRootPath, path);
-
-            if (!System.IO.File.Exists(outputFilePath))
+            if (!System.IO.File.Exists(path))
                 throw new Exception("File not found");
 
-            var fileInfo = new System.IO.FileInfo(outputFilePath);
+            var fileInfo = new System.IO.FileInfo(path);
             Response.ContentType = "application/pdf";
             Response.Headers.Add("Content-Disposition", "attachment;filename=\"" + fileInfo.Name + "\"");
             Response.Headers.Add("Content-Length", fileInfo.Length.ToString());
 
             // Send the file to the client
-            return File(System.IO.File.ReadAllBytes(outputFilePath), "application/pdf", fileInfo.Name);
+            return File(System.IO.File.ReadAllBytes(path), "application/pdf", fileInfo.Name);
         }
     }
 }
