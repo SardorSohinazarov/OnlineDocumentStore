@@ -17,7 +17,7 @@ namespace OnlineDocumentStore.Infrastructure.Repositories
             return entry.Entity;
         }
 
-        public async ValueTask<TEntity> SelectByIdAsync(long id)
+        public async ValueTask<TEntity> SelectByIdAsync(Guid id)
             => await _context.Set<TEntity>().FindAsync(id);
 
         public IQueryable<TEntity> SelectAll()

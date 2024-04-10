@@ -39,23 +39,19 @@ namespace OnlineDocumentStore.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UploadedDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("UploadedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UploadedFilePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Documents");
                 });
@@ -102,7 +98,7 @@ namespace OnlineDocumentStore.Infrastructure.Migrations
                 {
                     b.HasOne("OnlineDocumentStore.Domain.Entities.User", "User")
                         .WithMany("Documents")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
