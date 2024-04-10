@@ -11,7 +11,9 @@ namespace OnlineDocumentStore.API.Controllers
         private readonly IPDFFileService _pdfFileService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PDFEditorController(IPDFFileService pdfFileService, IWebHostEnvironment webHostEnvironment)
+        public PDFEditorController(
+            IPDFFileService pdfFileService,
+            IWebHostEnvironment webHostEnvironment)
         {
             _pdfFileService = pdfFileService;
             _webHostEnvironment = webHostEnvironment;
@@ -23,10 +25,7 @@ namespace OnlineDocumentStore.API.Controllers
             var editedFile = await _pdfFileService.AddPhotoAsync(pdfFile, x, y, length);
 
             if (!System.IO.File.Exists(editedFile))
-            {
-                // Return a 404 Not Found error if the file does not exist
-                return NotFound();
-            }
+                throw new Exception("File not found");
 
             var fileInfo = new System.IO.FileInfo(editedFile);
             Response.ContentType = "application/pdf";
@@ -45,10 +44,7 @@ namespace OnlineDocumentStore.API.Controllers
             string outputFilePath = Path.Combine(webRootPath, path);
 
             if (!System.IO.File.Exists(outputFilePath))
-            {
-                // Return a 404 Not Found error if the file does not exist
-                return NotFound();
-            }
+                throw new Exception("File not found");
 
             var fileInfo = new System.IO.FileInfo(outputFilePath);
             Response.ContentType = "application/pdf";
