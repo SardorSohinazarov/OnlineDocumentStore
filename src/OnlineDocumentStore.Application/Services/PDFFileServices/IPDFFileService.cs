@@ -1,6 +1,6 @@
 ﻿using OnlineDocumentStore.Application.Models;
 
-namespace OnlineDocumentStore.Application.Services
+namespace OnlineDocumentStore.Application.Services.PDFFileServices
 {
     public interface IPDFFileService
     {

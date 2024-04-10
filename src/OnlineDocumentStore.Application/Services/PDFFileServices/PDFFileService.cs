@@ -2,11 +2,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using OnlineDocumentStore.Application.Models;
+using OnlineDocumentStore.Application.Services.FileServices;
+using OnlineDocumentStore.Application.Services.QRCodeServices;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
-namespace OnlineDocumentStore.Application.Services
+namespace OnlineDocumentStore.Application.Services.PDFFileServices
 {
     public class PDFFileService : IPDFFileService
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace OnlineDocumentStore.Application.Services
+namespace OnlineDocumentStore.Application.Services.FileServices
 {
     public class FileService : IFileService
     {

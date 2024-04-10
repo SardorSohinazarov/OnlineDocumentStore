@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace OnlineDocumentStore.Application.Services
+namespace OnlineDocumentStore.Application.Services.FileServices
 {
     public interface IFileService
     {
