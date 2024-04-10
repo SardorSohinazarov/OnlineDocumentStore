@@ -1,5 +1,6 @@
 using OnlineDocumentStore.API.Middlewares;
 using OnlineDocumentStore.Application;
+using OnlineDocumentStore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices();
-
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 
