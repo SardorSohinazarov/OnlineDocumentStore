@@ -1,4 +1,4 @@
-﻿namespace OnlineDocumentStore.Application.Models.Auth
+﻿namespace OnlineDocumentStore.Application.DataTransferObjects.Auth
 {
     public class TokenDTO
     {
