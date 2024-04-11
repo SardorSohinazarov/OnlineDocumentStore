@@ -1,0 +1,22 @@
+﻿@using OnlineDocumentStore.Application.DataTransferObjects.Auth
+@model LoginDTO
+
+<form class="container-form">
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email address</label>
+        <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" type="password" class="form-control">
+    </div>
+
+    <button asp-controller="Auth" asp-action="Login" formmethod="post" type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<style>
+    .container-form {
+        width: 50%;
+        margin: 0 auto;
+    }
+</style>
