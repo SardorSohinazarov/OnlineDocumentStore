@@ -1,4 +1,4 @@
-﻿using OnlineDocumentStore.Application.Models.Auth;
+﻿using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 
 namespace OnlineDocumentStore.Application.Services.AuthServices
 {

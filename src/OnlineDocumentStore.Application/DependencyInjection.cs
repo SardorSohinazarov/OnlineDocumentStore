@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineDocumentStore.Application.Services.AuthServices;
+using OnlineDocumentStore.Application.Services.DocumentServices;
 using OnlineDocumentStore.Application.Services.FileServices;
 using OnlineDocumentStore.Application.Services.Halpers;
 using OnlineDocumentStore.Application.Services.JWTServices;
@@ -19,7 +20,8 @@ namespace OnlineDocumentStore.Application
                 .AddScoped<IPasswordHasher, PasswordHasher>()
                 .AddScoped<IPDFFileService, PDFFileService>()
                 .AddScoped<IQRCodeService, QRCodeService>()
-                .AddScoped<IJWTService, JWTService>();
+                .AddScoped<IJWTService, JWTService>()
+                .AddScoped<IDocumentService, DocumentService>();
 
             services.AddHttpContextAccessor();
 

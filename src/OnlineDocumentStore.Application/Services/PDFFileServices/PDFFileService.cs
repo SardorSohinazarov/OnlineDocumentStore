@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using OnlineDocumentStore.Application.Abstractions.Repositories;
-using OnlineDocumentStore.Application.Models;
+using OnlineDocumentStore.Application.DataTransferObjects;
 using OnlineDocumentStore.Application.Services.FileServices;
 using OnlineDocumentStore.Application.Services.QRCodeServices;
 using OnlineDocumentStore.Domain.Entities;
@@ -127,10 +127,7 @@ namespace OnlineDocumentStore.Application.Services.PDFFileServices
         {
             string url = _httpContextAccessor.HttpContext.Request.GetDisplayUrl();
 
-            url = _httpContextAccessor.HttpContext.Request.Scheme + "://" +
-                _httpContextAccessor.HttpContext.Request.Host +
-                "/api/Documents?id=" +
-                id;
+            url = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Documents/{id}";
 
             return url;
         }

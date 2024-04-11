@@ -1,0 +1,23 @@
+﻿@using OnlineDocumentStore.Application.DataTransferObjects
+@model PDFFile
+
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h3>Amal bajarish uchun ro'yhatdan o'tgan va login qilgan bolishingiz kerak</h3>
+        <a class="btn btn-primary" asp-controller="Auth" asp-action="Register">Ro'yhatdan o'tish</a>
+        <a class="btn btn-primary" asp-controller="Auth" asp-action="Login">Kirish</a>
+    </div>
+}
+else
+{
+    <form enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="File" class="form-label">Pdf file</label>
+            <input asp-for="File" class="form-control" type="file" id="formFileMultiple" accept=".pdf" multiple>
+        </div>
+
+        <button class="btn btn-primary mt-1" asp-controller="Home" asp-action="UploadDocument" formmethod="post">Save</button>
+    </form>
+}

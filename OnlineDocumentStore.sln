@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AE8F5ACC-2E2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineDocumentStore.API", "src\OnlineDocumentStore.API\OnlineDocumentStore.API.csproj", "{35CC5102-DB39-4ED5-A2F6-264C3B75E938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDocumentStore.Domain", "src\OnlineDocumentStore.Domain\OnlineDocumentStore.Domain.csproj", "{27FC2B61-088F-435B-AFF4-97799C5DB9EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineDocumentStore.Domain", "src\OnlineDocumentStore.Domain\OnlineDocumentStore.Domain.csproj", "{27FC2B61-088F-435B-AFF4-97799C5DB9EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDocumentStore.Application", "src\OnlineDocumentStore.Application\OnlineDocumentStore.Application.csproj", "{0907EF20-3FBE-4D92-B8A5-65645ADD79AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineDocumentStore.Application", "src\OnlineDocumentStore.Application\OnlineDocumentStore.Application.csproj", "{0907EF20-3FBE-4D92-B8A5-65645ADD79AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDocumentStore.Infrastructure", "src\OnlineDocumentStore.Infrastructure\OnlineDocumentStore.Infrastructure.csproj", "{A3D9296D-AA12-4429-9146-43F9AD4E551F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineDocumentStore.Infrastructure", "src\OnlineDocumentStore.Infrastructure\OnlineDocumentStore.Infrastructure.csproj", "{A3D9296D-AA12-4429-9146-43F9AD4E551F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineDocumentStore.MVC", "src\OnlineDocumentStore.MVC\OnlineDocumentStore.MVC.csproj", "{AEE4C233-DD5B-45FD-83EE-AEE51868DA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A3D9296D-AA12-4429-9146-43F9AD4E551F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D9296D-AA12-4429-9146-43F9AD4E551F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3D9296D-AA12-4429-9146-43F9AD4E551F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE4C233-DD5B-45FD-83EE-AEE51868DA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE4C233-DD5B-45FD-83EE-AEE51868DA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE4C233-DD5B-45FD-83EE-AEE51868DA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE4C233-DD5B-45FD-83EE-AEE51868DA20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{27FC2B61-088F-435B-AFF4-97799C5DB9EF} = {AE8F5ACC-2E2C-453F-A9B3-6C99CC1C50A2}
 		{0907EF20-3FBE-4D92-B8A5-65645ADD79AC} = {AE8F5ACC-2E2C-453F-A9B3-6C99CC1C50A2}
 		{A3D9296D-AA12-4429-9146-43F9AD4E551F} = {AE8F5ACC-2E2C-453F-A9B3-6C99CC1C50A2}
+		{AEE4C233-DD5B-45FD-83EE-AEE51868DA20} = {AE8F5ACC-2E2C-453F-A9B3-6C99CC1C50A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {06532D13-C38F-4356-B9BC-BE5483F1AC04}

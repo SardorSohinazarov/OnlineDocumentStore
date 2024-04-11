@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OnlineDocumentStore.Application.Abstractions;
-using OnlineDocumentStore.Application.Models.Auth;
+using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 using OnlineDocumentStore.Domain.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

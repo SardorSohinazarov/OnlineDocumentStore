@@ -1,4 +1,4 @@
-﻿using OnlineDocumentStore.Application.Models;
+﻿using OnlineDocumentStore.Application.DataTransferObjects;
 
 namespace OnlineDocumentStore.Application.Services.PDFFileServices
 {

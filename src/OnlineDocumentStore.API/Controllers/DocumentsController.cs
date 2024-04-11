@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineDocumentStore.Application.Abstractions.Repositories;
+using OnlineDocumentStore.Application.Services.DocumentServices;
 
 namespace OnlineDocumentStore.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class DocumentsController : ControllerBase
     {
-        private readonly IDocumentRepository _documentRepository;
+        private readonly IDocumentService _documentService;
 
-        public DocumentsController(IDocumentRepository documentRepository)
-            => _documentRepository = documentRepository;
+        public DocumentsController(IDocumentService documentService)
+            => _documentService = documentService;
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetDocument(Guid id)
         {
-            var document = await _documentRepository.SelectByIdAsync(id);
+            var document = await _documentService.GetByIdAsync(id);
             return Ok(document);
         }
     }

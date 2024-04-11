@@ -1,0 +1,15 @@
+﻿@using OnlineDocumentStore.Application.ViewModels
+@model DocumentViewModel
+
+<div class="container">
+    <h1>@Model.Name</h1>
+
+    <p>Yuklangan sana:@Model.UploadedDate</p>
+           @*  public string UploadedFilePath { get; set; }
+            public string EditedFilePath { get; set; } *@
+
+    <h1>Author: @Model.User.FullName</h1>
+
+    <a asp-controller="File" asp-action="DownloadFile" asp-route-path="@Model.EditedFilePath" class="btn btn-primary">Download this</a>
+    <a asp-controller="File" asp-action="DownloadFile" asp-route-path="@Model.UploadedFilePath" class="btn btn-primary">Download Original</a>
+</div>
