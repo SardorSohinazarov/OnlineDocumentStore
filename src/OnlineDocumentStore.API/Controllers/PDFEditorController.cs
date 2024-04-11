@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineDocumentStore.Application.Models;
+using OnlineDocumentStore.Application.DataTransferObjects;
 using OnlineDocumentStore.Application.Services.PDFFileServices;
 
 namespace OnlineDocumentStore.API.Controllers
@@ -36,7 +36,6 @@ namespace OnlineDocumentStore.API.Controllers
 
             // Send the file to the client
             return File(System.IO.File.ReadAllBytes(editedFile), "application/pdf", fileInfo.Name);
-            return Ok(editedFile);
         }
 
         [HttpGet("{path}")]

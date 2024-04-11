@@ -3,7 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OnlineDocumentStore.API.Middlewares;
 using OnlineDocumentStore.Application;
-using OnlineDocumentStore.Application.Models.Auth;
+using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 using OnlineDocumentStore.Infrastructure;
 using System.Text;
 using System.Text.Json;
@@ -85,6 +85,7 @@ app.UseSwaggerUI();
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

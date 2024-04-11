@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineDocumentStore.Application.Models.Auth;
+using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 using OnlineDocumentStore.Application.Services.AuthServices;
 using OnlineDocumentStore.Application.Services.JWTServices;
 
