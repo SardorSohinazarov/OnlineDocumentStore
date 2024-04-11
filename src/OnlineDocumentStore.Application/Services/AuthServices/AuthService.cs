@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineDocumentStore.Application.Abstractions;
-using OnlineDocumentStore.Application.Models.Auth;
+using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 using OnlineDocumentStore.Application.Services.Halpers;
 using OnlineDocumentStore.Application.Services.JWTServices;
 using OnlineDocumentStore.Domain.Entities;

@@ -1,4 +1,4 @@
-﻿using OnlineDocumentStore.Application.Models.Auth;
+﻿using OnlineDocumentStore.Application.DataTransferObjects.Auth;
 using OnlineDocumentStore.Domain.Entities;
 
 namespace OnlineDocumentStore.Application.Services.JWTServices
